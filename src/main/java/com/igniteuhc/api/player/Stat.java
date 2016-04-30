@@ -1,4 +1,4 @@
-package com.igniteuhc.api.backend.player;
+package com.igniteuhc.api.player;
 
 import com.igniteuhc.api.backend.data.DataValue;
 import com.igniteuhc.api.backend.data.DataValueType;
