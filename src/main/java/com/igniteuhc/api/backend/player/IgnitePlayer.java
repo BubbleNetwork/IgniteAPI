@@ -610,69 +610,7 @@ public class IgnitePlayer {
     		return level;
     	}
     }
-    
-    /**
-     * The stats enum class.
-     */
-    public enum Stat {
-    	WINS("Wins"), 
-    	GAMESPLAYED("Games played"), 
-    	KILLS("Kills"), 
-    	DEATHS("Deaths"), 
-    	DAMAGETAKEN("Damage taken"), 
-    	ARENAKILLS("Arena Kills"), 
-    	ARENADEATHS("Arena Deaths"), 
-    	KILLSTREAK("Highest Killstreak"), 
-    	ARENAKILLSTREAK("Highest Arena Killstreak"), 
-    	GOLDENAPPLESEATEN("Golden Apples Eaten"),
-    	GOLDENHEADSEATEN("Golden Heads Eaten"), 
-    	HORSESTAMED("Horses Tamed"), 
-    	WOLVESTAMED("Wolves Tamed"), 
-    	POTIONS("Potions Drunk"), 
-    	NETHER("Went to Nether"), 
-    	END("Went to The End"), 
-    	DIAMONDS("Mined diamonds"),
-    	GOLD("Mined gold"),
-    	HOSTILEMOBKILLS("Killed a monster"),
-    	ANIMALKILLS("Killed an animal"),
-    	LONGESTSHOT("Longest Shot"),
-    	LEVELS("Levels Earned");
-    	
-    	private String name;
-		private final DataValue type;
-    	
-    	private Stat(final String name) {
-    		this.name = name;
-			type = new DataValue("stat." + getName().toLowerCase(), 0.0D, DataValueType.DOUBLE);
-    	}
-    	
-    	/**
-    	 * Get the name of the stat.
-    	 * 
-    	 * @return The name.
-    	 */
-    	public String getName() {
-    		return name;
-    	}
-    	
-    	public Stat getStat(final String stat) {
-    		try {
-    			return valueOf(stat);
-    		} catch (Exception e) {
-    			for (Stat stats : values()) {
-    				if (stats.getName().startsWith(stat)) {
-    					return stats;
-    				}
-    			}
-    		}
-    		
-    		return null;
-    	}
 
-		public DataValue getType(){
-			return type;
-		}
-    }
 
 	public enum Hotbar{
 		SWORD("Sword", 0),
@@ -727,6 +665,6 @@ public class IgnitePlayer {
 
 	@Override
 	public boolean equals(Object o){
-		return o instanceof User && ((User)o).getUniqueId() == getUniqueId();
+		return o instanceof IgnitePlayer && ((IgnitePlayer)o).getUniqueId() == getUniqueId();
 	}
 }
